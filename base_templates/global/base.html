@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="stylesheet" href="{% static 'global/css/style.css' %}">
+    </head>
+
+    <body>
+        {% include 'global/partials/menu.html' %}
+
+        <main>
+            {% block content %} {% endblock %}
+        </main>
+
+        {% include 'global/partials/footer.html' %}
+    </body>
+</html>

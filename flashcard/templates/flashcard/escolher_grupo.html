@@ -1,0 +1,8 @@
+{% extends 'global/base.html' %}
+
+{% block content %}
+	<h1>Escolher grupo de flashcards para revisar ou para adicionar um flashcard</h1>
+    <h2><a href="{% url 'flashcard:tipo_criacao_flashcard' %}">Ir para tipo do flashcard
+        depois de escolher o grupo que vai ser adicionado</a></h2>
+    <h2><a href="{% url 'flashcard:revisao' %}">Ir para revisao depois de escolher o grupo</a></h2>
+{% endblock %}

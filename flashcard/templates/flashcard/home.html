@@ -1,0 +1,11 @@
+{% extends 'global/base.html' %}
+
+{% block content %}
+	<h1>Home</h1>
+    <ul>
+        <li><a href="{% url 'flashcard:escolher_grupo_flashcard' %}">Criar flashcard</a></li>
+        <li><a href="{% url 'flashcard:visualizar_grupos' %}">Grupos flashcard</a></li>
+        <li><a href="{% url 'flashcard:escolher_grupo_flashcard' %}">Revisão dos Flashcards</a></li>
+        <li><a href="{% url 'flashcard:login' %}">Login</a></li>
+    </ul>
+{% endblock %}
