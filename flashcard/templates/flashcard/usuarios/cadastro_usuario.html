@@ -1,5 +1,17 @@
 {% extends 'global/base.html' %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
 	<h1>Cadastro usuário</h1>
+
+    <div>
+        <form method="post">
+            {% csrf_token %}
+
+            {{ form }}
+
+            <button type="submit">Cadastrar</button>
+        </form>
+    </div>
 {% endblock %}

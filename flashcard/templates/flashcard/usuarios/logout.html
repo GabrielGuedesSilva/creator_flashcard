@@ -1,5 +1,7 @@
 {% extends 'global/base.html' %}
 
 {% block content %}
-	<h1>Logout</h1>
+	<h1>Você foi deslogado com sucesso</h1>
+    <h2><a href="{% url 'flashcard:login' %}">Fazer login novamente</a></h2>
+    <h2><a href="{% url 'flashcard:home' %}">Home</a></h2>
 {% endblock %}

@@ -2,4 +2,11 @@
 
 {% block content %}
 	<h1>Criar flashcard</h1>
+    <form class="form-flashcard" method="post">
+        {% csrf_token %}
+
+        {{ form }}
+
+        <button type="submit">Criar flashcard</button>
+    </form>
 {% endblock %}
