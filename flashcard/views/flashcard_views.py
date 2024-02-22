@@ -99,10 +99,10 @@ def criar_flashcard(request, tipo_flashcard, grupo_flashcard):
 
                 client = Client("en", "pt")
 
-                traducao_verso = list(client.get_translations("love"))[0]
+                traducao_verso = list(client.get_translations(flashcard.palavra_frente))[0]
                 flashcard.traducao_verso = traducao_verso
 
-                frases_aplicacao = next(client.get_translation_samples("love", cleanup=True))
+                frases_aplicacao = next(client.get_translation_samples(flashcard.palavra_frente, cleanup=True))
                 flashcard.frase_aplicacao_verso_original = frases_aplicacao[0]
                 flashcard.frase_aplicacao_verso_traduzida = frases_aplicacao[1]
                 flashcard.opcoes_revisao = gera_opcoes(flashcard.palavra_frente)

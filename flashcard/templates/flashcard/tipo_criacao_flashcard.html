@@ -1,0 +1,7 @@
+{% extends 'global/base.html' %}
+
+{% block content %}
+	<h1>Escolha tipo de criação do flashcard</h1>
+    <a href="{% url 'flashcard:criar_flashcard' 'automático' tema_grupo %}">Flashcard automático</a><br>
+    <a href="{% url 'flashcard:criar_flashcard' 'personalizado' tema_grupo %}">Flashcard personalizado</a>
+{% endblock %}

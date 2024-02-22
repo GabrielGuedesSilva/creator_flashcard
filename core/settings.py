@@ -146,4 +146,5 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = reverse_lazy('flashcard:login')
-LOGIN_REDIRECT_URL = reverse_lazy('flashcard:home')
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'

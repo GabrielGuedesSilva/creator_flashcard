@@ -1,8 +1,17 @@
 {% extends 'global/base.html' %}
 
 {% block content %}
-	<h1>Escolher grupo de flashcards para revisar ou para adicionar um flashcard</h1>
-    <h2><a href="{% url 'flashcard:tipo_criacao_flashcard' %}">Ir para tipo do flashcard
-        depois de escolher o grupo que vai ser adicionado</a></h2>
-    <h2><a href="{% url 'flashcard:revisao' %}">Ir para revisao depois de escolher o grupo</a></h2>
+	{% if proxima_pagina == 'criacao' %}
+		<h1>Selecione o grupo de flashcard que você deseja adicionar o flashcard criado</h1>
+    {% else %}
+        <h1>Selecione o grupo de flashcard que você deseja revisar</h1>
+	{% endif %}
+
+    {% for grupo in grupos_flashcard %}
+    	<div class="container-grupo" tema-grupo="{{ grupo.tema }}" >
+            <h2> {{ grupo.tema }} </h2><br>
+            <p> {{ grupo.descricao }}</p><br>
+        </div>
+    {% endfor %}
+
 {% endblock %}

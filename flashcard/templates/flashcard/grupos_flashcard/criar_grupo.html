@@ -2,4 +2,12 @@
 
 {% block content %}
 	<h1>Criar novo grupo flashcard</h1>
+
+    <form method="post" class="form-criacao-grupo">
+        {% csrf_token %}
+
+        {{ form }}
+
+        <button type="submit">Criar grupo</button>
+    </form>
 {% endblock %}

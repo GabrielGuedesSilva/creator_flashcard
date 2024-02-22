@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 
 from flashcard.forms import GrupoFlashcardForm
 from flashcard.models import GrupoFlashcard
@@ -20,6 +20,17 @@ def criar_grupo_flashcard(request):
             'flashcard/grupos_flashcard/criar_grupo.html',
             context
         )
+
+    if request.method == 'POST':
+        form = GrupoFlashcardForm(request.POST)
+
+        if form.is_valid():
+            grupo_flashcard = GrupoFlashcard(**form.cleaned_data)
+            grupo_flashcard.usuario_pertencente = request.user
+            grupo_flashcard.save()
+            return redirect('flashcard:visualizar_grupo_flashcard', tema=grupo_flashcard.tema)
+
+
 @login_required
 def visualizar_grupos_flashcard(request):
     if request.method == 'GET':

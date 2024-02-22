@@ -1,5 +1,19 @@
 {% extends 'global/base.html' %}
 
 {% block content %}
-	<h1>Visualizar flashcard</h1>
+    <div class="container-flashcard" onclick="flipCard(this)">
+        <div class="flashcard">
+            <div class="frente">
+                <p> Palavra frente: {{ flashcard.palavra_frente }} </p>
+            </div>
+            <div class="verso">
+                <div class="verso-content">
+                    <p> Tradução: {{ flashcard.traducao_verso}} </p>
+                    <p> Frase de aplicação: {{ flashcard.frase_aplicacao_verso_original }} </p>
+                    <p> Frase de aplicação traduzida: {{ flashcard.frase_aplicacao_verso_traduzida }} </p>
+                    <p> Informações adicionais: {{ flashcard.info_adicional }} </p>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

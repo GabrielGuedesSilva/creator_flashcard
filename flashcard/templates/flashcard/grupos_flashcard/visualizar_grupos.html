@@ -2,9 +2,16 @@
 
 {% block content %}
 	<h1>Grupos flashcard</h1>
-    <h2>As funcionalidades abaixo terão para cada grupo que aparecer</h2>
-    <h2><a href="{% url 'flashcard:criar_grupo_flashcard' %}">Criar novo grupo</a></h2>
-    <h2><a href="{% url 'flashcard:visualizar_grupo_flashcard' %}">Visualizar grupo</a></h2>
-    <h2><a href="{% url 'flashcard:editar_grupo_flashcard' %}">Editar grupo</a></h2>
-    <h2><a href="{% url 'flashcard:excluir_grupo_flashcard' %}">Excluir grupo</a></h2>
+    <div>
+        <h2><a href="{% url 'flashcard:criar_grupo_flashcard' %}">Criar novo grupo</a></h2>
+    </div>
+
+    {% for grupo in grupos_flashcard %}
+    	<div>
+            <a href={% url 'flashcard:visualizar_grupo_flashcard' grupo.tema %}><h2> {{ grupo.tema }} </h2></a>
+            <p> {{ grupo.descricao }}</p>
+            <br>
+        </div>
+    {% endfor %}
+
 {% endblock %}

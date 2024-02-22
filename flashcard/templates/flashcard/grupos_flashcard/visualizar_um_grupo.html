@@ -1,10 +1,14 @@
 {% extends 'global/base.html' %}
 
 {% block content %}
-	<h1>Visualização grupo flashcard</h1>
-    <h2>As funcionalidades abaixo terão para cada flash do grupo que aparecer</h2>
-    <h2><a href="{% url 'flashcard:criar_flashcard' %}">Criar flashcard</a></h2>
-    <h2><a href="{% url 'flashcard:visualizar_flashcard' %}">Visualizar flashcard</a></h2>
-    <h2><a href="{% url 'flashcard:editar_flashcard' %}">Editar flashcard</a></h2>
-    <h2><a href="{% url 'flashcard:excluir_flashcard' %}">Excluir flashcard</a></h2>
+	<h1>{{ grupo_flashcard.tema }}</h1>
+    <a href="{% url 'flashcard:editar_grupo_flashcard' grupo_flashcard.tema %}">Editar grupo</a><br>
+    <a href="{% url 'flashcard:excluir_grupo_flashcard' %}">Excluir Grupo</a><br>
+    <p>{{ grupo_flashcard.descricao }}</p><br>
+
+
+    {% for flashcard in grupo_flashcard.flashcards.all %}
+        <a href="{% url 'flashcard:visualizar_flashcard' flashcard.palavra_frente %}">{{ flashcard.palavra_frente }}</a><br>
+    {% endfor %}
+
 {% endblock %}

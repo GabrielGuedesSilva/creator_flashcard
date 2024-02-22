@@ -3,3 +3,60 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.container-grupo {
+  background-color: cyan;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.container-grupo:hover {
+  background-color: lightcyan;
+}
+
+.container-flashcard {
+  width: 500px;
+  height: 500px;
+  cursor:pointer;
+  perspective: 1000px;
+}
+
+.flashcard {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+  position: relative;
+  background-color: cyan;
+
+}
+
+.frente, .verso {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.verso {
+  transform: rotateY(180deg);
+  text-align: center;
+}
+
+#flip {
+  display: none;
+}
+
+.form-criacao-grupo {
+  margin: 10px;
+}
+
+.form-criacao-grupo label {
+  display: block;
+}
